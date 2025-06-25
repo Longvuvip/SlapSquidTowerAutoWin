@@ -52,8 +52,8 @@ local function makeBtn(name, yPos)
     end)
 end
 
-makeBtn("AutoJump", 40)
-makeBtn("SpeedHack", 90)
+makeBtn("AutoJump", 300)
+makeBtn("SpeedHack", 300)
 
 -- ⚡ Speed Hack
 RunService.RenderStepped:Connect(function()

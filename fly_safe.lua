@@ -1,5 +1,5 @@
--- LongDepTrai Safe Fly Script 🛡️
--- Không bị kick, không log, dùng tốt với mọi AntiBan
+-- 🛫 LongDepTrai Fly Safe Script 🛫
+-- Không bị kick, tương thích với AntiBan, Swift PC friendly
 
 local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")

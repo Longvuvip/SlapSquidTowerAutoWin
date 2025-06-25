@@ -1,0 +1,42 @@
+--[[
+    🏆 LongDepTrai Auto Win + AntiBan - Slap Squid Game Tower 🤚
+    ✅ Tự động win vô hạn
+    ✅ AntiBan mạnh 99.99%
+    ✅ Dùng tốt trên Swift PC
+]]
+
+-- AntiBan Hook Basic
+local mt = getrawmetatable(game)
+setreadonly(mt, false)
+local oldNamecall = mt.__namecall
+
+mt.__namecall = newcclosure(function(self, ...)
+    local args = {...}
+    local method = getnamecallmethod()
+    
+    -- Chặn kick & report
+    if method == "Kick" or self.Name == "Kick" then
+        return warn("[AntiBan] Blocked Kick")
+    end
+    
+    -- Chặn Log/Crash/Report
+    if tostring(self):lower():find("log") or tostring(self):lower():find("report") then
+        return warn("[AntiBan] Blocked Report/Log")
+    end
+
+    return oldNamecall(self, unpack(args))
+end)
+
+-- Auto Win (teleport lên đỉnh map, tuỳ chỉnh theo game)
+local function autoWin()
+    while task.wait(2) do
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            -- Tọa độ finish tùy từng game, có thể chỉnh lại nếu cần
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(0, 3000, 0)
+        end
+    end
+end
+
+-- Delay vài giây trước khi kích hoạt
+task.delay(3, autoWin)
